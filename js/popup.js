@@ -88,27 +88,18 @@ document.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('get-current-headers').addEventListener('click', getCurrentHeaders);
 
   document.getElementById('save-response').addEventListener('click', () => {
-    const responseText = document.getElementById('response').value;
-    if (responseText) {
-      const format = detectResponseFormat(responseText);
-      let content, filename;
+  const responseText = document.getElementById('response').value;
 
-      if (format === 'json') {
-        content = JSON.stringify({ content: responseText }, null, 2);
-        filename = 'response.json';
-      } else if (format === 'html') {
-        content = responseText;
-        filename = 'response.html';
-      } else {
-        content = responseText;
-        filename = 'response.txt';
-      }
+  if (responseText) {
+    const content = responseText.split('\n\n').slice(1).join('\n\n');
+    const format = detectResponseFormat(content);
+    const filename = `response.${format}`;
 
-      saveToFile(content, filename);
-    } else {
-      alert('No response to save');
-    }
-  });
+    saveToFile(content, filename);
+  } else {
+    alert('No response to save');
+  }
+});
 });
 
 function getHeaders() {

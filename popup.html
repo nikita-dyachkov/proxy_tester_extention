@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proxy Tester Pro</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Proxy Tester Pro</h1>
+    <div class="input-group">
+      <label for="url">URL:</label>
+      <input type="url" id="url" placeholder="https://example.com">
+      <button id="get-current-url">Use Current URL</button>
+    </div>
+    <div class="input-group">
+      <label for="method">Method:</label>
+      <select id="method">
+        <option>GET</option>
+        <option>POST</option>
+      </select>
+    </div>
+    <div class="input-group">
+      <label>
+        <input type="checkbox" id="enable-headers"> Enable Headers
+      </label>
+    </div>
+    <div id="headers-section" class="hidden">
+      <div class="input-group">
+        <label>Headers Format:</label>
+        <select id="headers-format">
+          <option value="json">JSON</option>
+          <option value="key-value">Key-Value</option>
+        </select>
+      </div>
+      <div id="headers-json" class="input-group">
+        <label for="headers">Headers (JSON):</label>
+        <textarea id="headers" placeholder='{ "Content-Type": "application/json" }'></textarea>
+        <button id="get-current-headers">Use Current Headers</button>
+      </div>
+      <div id="headers-key-value" class="input-group hidden">
+        <label>Headers (Key-Value):</label>
+        <div id="headers-key-value-fields"></div>
+        <button id="add-header">Add Header</button>
+      </div>
+    </div>
+    <div id="body-section" class="input-group hidden">
+      <label for="body">Body (for POST):</label>
+      <select id="body-format">
+        <option value="json">JSON</option>
+        <option value="key-value">Key-Value</option>
+      </select>
+      <div id="body-json">
+        <textarea id="body" placeholder='{ "key": "value" }'></textarea>
+      </div>
+      <div id="body-key-value" class="hidden">
+        <div id="body-key-value-fields"></div>
+        <button id="add-body-field">Add Field</button>
+      </div>
+    </div>
+    <div class="input-group">
+      <label for="proxy-list">Proxy:</label>
+      <select id="proxy-list">
+        <option value="">No Proxy</option>
+      </select>
+    </div>
+    <div class="input-group">
+      <label for="response">Response:</label>
+      <textarea id="response" readonly></textarea>
+      <button id="save-response">Save Response</button>
+    </div>
+    <div class="input-group">
+      <label for="validation-type">Validation:</label>
+      <select id="validation-type">
+        <option value="string">String Match</option>
+        <option value="regex">RegEx</option>
+        <option value="selector">CSS Selector</option>
+      </select>
+      <input type="text" id="validation-pattern" placeholder="Enter pattern">
+    </div>
+    <button id="send">Send Request</button>
+  </div>
+  <script type="module" src="js/popup.js"></script>
+</body>
+</html>

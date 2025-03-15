@@ -1,0 +1,12 @@
+{
+  "proxies": [
+    {
+      "name": "Luminati",
+      "url": "http://brd-customer-*****-zone-webapi_fp_shared:******@brd.superproxy.io:22225"
+    },
+    {
+      "name": "Another Proxy",
+      "url": "http://username:password@proxy.example.com:3128"
+    }
+  ]
+}

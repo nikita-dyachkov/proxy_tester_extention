@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Proxy Tester Pro",
+  "version": "1.0",
+  "permissions": ["storage", "webRequest", "proxy", "tabs", "webRequestAuthProvider", "downloads"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "js/background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icons/icon48.png"
+  },
+  "icons": {
+    "48": "icons/icon48.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["config.json"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
